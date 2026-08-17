@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayim Shah | Data Engineer & Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c1d;
+  --surface: #141428;
+  --surface-2: #1c1c36;
+  --card: #181830;
+  --border: #2a2a4a;
+  --text: #eaeaf0;
+  --text-muted: #8888a8;
+  --accent: #6366f1;
+  --accent-glow: rgba(99, 102, 241, 0.15);
+  --teal: #2dd4bf;
+  --orange: #fb923c;
+  --pink: #f472b6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); text-decoration: none; transition: all 0.2s; }
+a:hover { color: var(--teal); }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+/* Animated gradient background */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 600px;
+  background: radial-gradient(ellipse at 30% 0%, rgba(99,102,241,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 0%, rgba(45,212,191,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Nav */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(12,12,29,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 14px 0;
+}
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { font-weight: 700; font-size: 1rem; color: var(--text); }
+.nav-brand span { color: var(--accent); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
+.nav-links a:hover { color: var(--teal); }
+
+/* Hero */
+.hero {
+  position: relative;
+  padding: 130px 0 60px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.hero-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(99,102,241,0.05);
+  flex-shrink: 0;
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero-text h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 8px; line-height: 1.15; }
+.hero-text h1 .highlight { color: var(--accent); }
+.hero-text .tagline { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; max-width: 480px; line-height: 1.6; }
+.hero-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #4f46e5; transform: translateY(-1px); box-shadow: 0 4px 24px var(--accent-glow); color: #fff; }
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+.btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+
+/* Stats */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0 0;
+}
+.stat {
+  text-align: center;
+  padding: 20px 12px;
+  background: var(--surface);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+.stat:hover { border-color: var(--accent); }
+.stat .num { font-size: 1.6rem; font-weight: 700; color: var(--teal); }
+.stat .lbl { font-size: 0.7rem; color: var(--text-muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Sections */
+section { padding: 56px 0; }
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Skills */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  transition: all 0.2s;
+}
+.skill-card:hover { border-color: var(--accent); background: var(--surface-2); }
+.skill-card h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--teal); margin-bottom: 10px; font-weight: 600; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.skill-tag { background: var(--surface-2); border: 1px solid var(--border); padding: 3px 9px; border-radius: 5px; font-size: 0.76rem; color: var(--text-muted); }
+
+/* Projects */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.project-card:hover { border-color: var(--accent); }
+.project-card:hover::before { opacity: 1; }
+.project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 8px; }
+.project-card h3 { font-size: 1.1rem; font-weight: 600; }
+.project-name { color: var(--orange); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.project-links { display: flex; gap: 8px; }
+.project-links a { font-size: 0.75rem; padding: 4px 12px; border: 1px solid var(--border); border-radius: 5px; color: var(--text-muted); }
+.project-links a:hover { border-color: var(--teal); color: var(--teal); }
+.project-card > p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 14px; line-height: 1.6; }
+.project-highlights { list-style: none; margin-bottom: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 5px 20px; }
+.project-highlights.single { grid-template-columns: 1fr; }
+.project-highlights li { font-size: 0.82rem; color: var(--text-muted); padding-left: 14px; position: relative; }
+.project-highlights li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.project-tech { display: flex; flex-wrap: wrap; gap: 5px; }
+.project-tech span { background: var(--accent-glow); border: 1px solid rgba(99,102,241,0.25); padding: 3px 9px; border-radius: 5px; font-size: 0.72rem; color: var(--accent); font-weight: 500; }
+
+/* Certs */
+.cert-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; transition: border-color 0.2s; }
+.cert-card:hover { border-color: var(--accent); }
+.cert-card h4 { font-size: 0.9rem; margin-bottom: 6px; }
+.cert-card p { font-size: 0.8rem; color: var(--text-muted); }
+.cert-badge { display: inline-block; font-size: 0.65rem; padding: 2px 8px; background: rgba(45,212,191,0.1); border: 1px solid rgba(45,212,191,0.2); color: var(--teal); border-radius: 4px; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Contact */
+.contact-section { text-align: center; padding: 56px 0; }
+.contact-section p { color: var(--text-muted); font-size: 1rem; margin-bottom: 20px; }
+.contact-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+/* Footer */
+footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.8rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero { flex-direction: column; text-align: center; gap: 24px; padding-top: 100px; }
+  .hero-photo { width: 130px; height: 130px; }
+  .hero-text h1 { font-size: 1.8rem; }
+  .hero-buttons { justify-content: center; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .project-highlights { grid-template-columns: 1fr; }
+  .cert-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero-bg"></div>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-brand"><span>&lt;</span>Dayim<span>/&gt;</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-photo">
+    <img src="photo.jpg" alt="Dayim Shah">
+  </div>
+  <div class="hero-text">
+    <h1>Hey, I'm <span class="highlight">Dayim</span></h1>
+    <p class="tagline">I build data pipelines, analytical warehouses, and dashboards that turn millions of raw events into numbers people bet money on.</p>
+    <div class="hero-buttons">
+      <a href="https://vireo-prism.vercel.app" target="_blank" class="btn btn-primary">View Live Project</a>
+      <a href="https://github.com/Dayimshah" target="_blank" class="btn btn-outline">GitHub</a>
+      <a href="https://www.linkedin.com/in/dayim-shah-612b03204" target="_blank" class="btn btn-outline">LinkedIn</a>
+      <a href="mailto:dayimshah321@gmail.com" class="btn btn-outline">dayimshah321@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat"><div class="num">1.1M+</div><div class="lbl">Events Processed</div></div>
+  <div class="stat"><div class="num">51</div><div class="lbl">Analytical Queries</div></div>
+  <div class="stat"><div class="num">55</div><div class="lbl">API Endpoints</div></div>
+  <div class="stat"><div class="num">330</div><div class="lbl">Tests Passing</div></div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <h2 class="section-title">About Me</h2>
+  <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; max-width: 720px;">
+    CS graduate from <strong style="color:var(--text);">VIT Vellore</strong>. I design analytical warehouses, write SQL that surfaces real patterns from noisy data, build APIs that serve them at scale, and deploy everything end-to-end. My flagship project plants deliberate causes in synthetic data, then proves the analytics layer rediscovers them blind. When it can't, I document why — because knowing where your instruments fail is the real skill.
+  </p>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4>Data Engineering</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Kafka</span>
+        <span class="skill-tag">Debezium</span>
+        <span class="skill-tag">Airflow</span>
+        <span class="skill-tag">dbt</span>
+        <span class="skill-tag">Snowflake</span>
+        <span class="skill-tag">ETL/ELT</span>
+        <span class="skill-tag">CDC</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>Languages & Databases</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Redis</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>Cloud & DevOps</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">Azure</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">GitHub Actions</span>
+        <span class="skill-tag">CI/CD</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>Analytics</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Cohort Analysis</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Funnels</span>
+        <span class="skill-tag">Retention</span>
+        <span class="skill-tag">KPIs</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>Visualization</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">DAX</span>
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Recharts</span>
+        <span class="skill-tag">React</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h4>Data Modeling</h4>
+      <div class="skill-tags">
+        <span class="skill-tag">Star Schema</span>
+        <span class="skill-tag">SCD Type-2</span>
+        <span class="skill-tag">Partitioning</span>
+        <span class="skill-tag">Mat. Views</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <h2 class="section-title">Featured Projects</h2>
+
+  <div class="project-card">
+    <div class="project-name">Titan</div>
+    <div class="project-header">
+      <h3>Enterprise Data Lakehouse Pipeline</h3>
+      <div class="project-links">
+        <a href="https://github.com/Dayimshah/titan" target="_blank">Code</a>
+      </div>
+    </div>
+    <p>Azure Databricks pipeline for energy operations. Medallion architecture processing well production, IoT telemetry, and maintenance data through Bronze, Silver, and Gold layers.</p>
+    <ul class="project-highlights">
+      <li>Medallion Architecture: Bronze (append), Silver (MERGE, SCD-2), Gold (KPIs)</li>
+      <li>SCD Type-2 dimension with hash-based change detection</li>
+      <li>Data quality framework: quarantine, anomaly detection (Z-score), audit</li>
+      <li>Equipment health scoring with predictive maintenance flags</li>
+      <li>CI/CD: Azure DevOps 4-stage pipeline with approval gates</li>
+      <li>Unity Catalog governance: RBAC, row-level security, column masking</li>
+    </ul>
+    <div class="project-tech">
+      <span>Azure Databricks</span><span>PySpark</span><span>Delta Lake</span><span>ADLS Gen2</span><span>Azure DevOps</span><span>Unity Catalog</span><span>Python</span><span>SQL</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-name">Prism</div>
+    <div class="project-header">
+      <h3>Product Analytics Platform for Vireo Streaming</h3>
+      <div class="project-links">
+        <a href="https://vireo-prism.vercel.app" target="_blank">Live Demo</a>
+        <a href="https://github.com/Dayimshah/vireo-prism" target="_blank">Code</a>
+      </div>
+    </div>
+    <p>Full-stack analytics: warehouse, API, and dashboard for a fictional streaming service. Data generator plants causes; SQL rediscovers them without being told.</p>
+    <ul class="project-highlights">
+      <li>13-table PostgreSQL warehouse, 65 monthly partitions, 1.1M events</li>
+      <li>51 SQL queries: window functions, cohorts, funnels, waterfalls</li>
+      <li>A/B testing with statistical significance and power analysis</li>
+      <li>55-endpoint FastAPI with Redis caching and rate limiting</li>
+      <li>11-page React dashboard, 8-dimension filtering, dark mode</li>
+      <li>Power BI star schema, ~70 DAX measures (churn, ARPU, LTV)</li>
+      <li>Deployed: Neon + Render + Vercel, Docker, GitHub Actions</li>
+      <li>330 invariant-based tests (not hardcoded values)</li>
+    </ul>
+    <div class="project-tech">
+      <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>React</span><span>TypeScript</span><span>Docker</span><span>Power BI</span><span>Neon</span><span>Vercel</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-name">Nexus</div>
+    <div class="project-header">
+      <h3>Cloud E-Commerce ELT Analytics Platform</h3>
+      <div class="project-links">
+        <a href="https://github.com/Dayimshah/ecommerce-elt-analytics" target="_blank">Code</a>
+      </div>
+    </div>
+    <p>ELT pipeline with dimensional modeling and BI dashboards uncovering revenue patterns and retention gaps.</p>
+    <ul class="project-highlights single">
+      <li>ELT pipeline: AWS S3 ingestion, PostgreSQL (RDS) warehouse, Python transforms</li>
+      <li>Star schema with fact and dimension tables over 100k+ records</li>
+      <li>Power BI dashboards tracking revenue, AOV, regional performance</li>
+      <li>Insight delivered: low repeat purchases + seller concentration risk</li>
+    </ul>
+    <div class="project-tech">
+      <span>AWS S3</span><span>PostgreSQL</span><span>Python</span><span>SQL</span><span>Power BI</span><span>Excel</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-name">Meridian</div>
+    <div class="project-header">
+      <h3>Modern Data Stack for Banking Analytics</h3>
+      <div class="project-links">
+        <a href="https://github.com/Dayimshah/Banking_Data-Engineering-Pipeline-" target="_blank">Code</a>
+      </div>
+    </div>
+    <p>Real-time streaming data stack: CDC capture, warehouse automation, orchestrated workflows for banking data.</p>
+    <ul class="project-highlights single">
+      <li>CDC streaming with Kafka + Debezium for real-time ingestion</li>
+      <li>SCD Type-2 dimensional models in Snowflake via dbt</li>
+      <li>Workflow orchestration with Airflow, CI/CD via GitHub Actions</li>
+    </ul>
+    <div class="project-tech">
+      <span>Kafka</span><span>Debezium</span><span>Airflow</span><span>dbt</span><span>Snowflake</span><span>GitHub Actions</span>
+    </div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section>
+  <h2 class="section-title">Certifications</h2>
+  <div class="cert-row">
+    <div class="cert-card">
+      <div class="cert-badge">Verified</div>
+      <h4>AWS Certified Cloud Practitioner</h4>
+      <p>Cloud services, architecture, security, pricing models</p>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">Verified</div>
+      <h4>Oracle Cloud Infrastructure Foundations</h4>
+      <p>Compute, networking, storage, IAM, cloud architecture</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section">
+  <h2 class="section-title" style="justify-content:center;">Get In Touch</h2>
+  <p>Looking for Data Engineering, Analytics, or Backend roles. Let's talk.</p>
+  <div class="contact-links">
+    <a href="mailto:dayimshah321@gmail.com" class="btn btn-primary">dayimshah321@gmail.com</a>
+    <a href="https://www.linkedin.com/in/dayim-shah-612b03204" target="_blank" class="btn btn-outline">LinkedIn</a>
+    <a href="https://github.com/Dayimshah" target="_blank" class="btn btn-outline">GitHub</a>
+    <a href="tel:+917006819661" class="btn btn-outline">+91 70068 19661</a>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Dayim Shah &middot; VIT Vellore &middot; Bengaluru</p>
+</footer>
+
+</body>
+</html>
