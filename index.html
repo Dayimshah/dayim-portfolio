@@ -8,18 +8,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0c0c1d;
-  --surface: #141428;
-  --surface-2: #1c1c36;
-  --card: #181830;
-  --border: #2a2a4a;
-  --text: #eaeaf0;
-  --text-muted: #8888a8;
-  --accent: #6366f1;
-  --accent-glow: rgba(99, 102, 241, 0.15);
-  --teal: #2dd4bf;
-  --orange: #fb923c;
-  --pink: #f472b6;
+  --bg: #f7f4ec;
+  --surface: #fffdf8;
+  --surface-2: #f0ece1;
+  --card: #fffdf8;
+  --border: #e3ddcd;
+  --text: #2a2722;
+  --text-muted: #6b6456;
+  --accent: #5a51e0;
+  --accent-glow: rgba(90, 81, 224, 0.12);
+  --teal: #0e9488;
+  --orange: #c2560f;
+  --pink: #d6457e;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,8 +44,8 @@ a:hover { color: var(--teal); }
   left: 0;
   right: 0;
   height: 600px;
-  background: radial-gradient(ellipse at 30% 0%, rgba(99,102,241,0.12) 0%, transparent 60%),
-              radial-gradient(ellipse at 70% 0%, rgba(45,212,191,0.08) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 30% 0%, rgba(90,81,224,0.10) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 0%, rgba(14,148,136,0.08) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -54,7 +54,7 @@ a:hover { color: var(--teal); }
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(12,12,29,0.88);
+  background: rgba(247,244,236,0.85);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   z-index: 100;
@@ -81,12 +81,15 @@ a:hover { color: var(--teal); }
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--accent);
-  box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(99,102,241,0.05);
+  box-shadow: 0 8px 32px rgba(90,81,224,0.18);
   flex-shrink: 0;
 }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
 .hero-text h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 8px; line-height: 1.15; }
 .hero-text h1 .highlight { color: var(--accent); }
+.c-accent { color: var(--accent); font-weight: 600; }
+.c-teal { color: var(--teal); font-weight: 600; }
+.c-ink { color: var(--text); font-weight: 600; }
 .hero-text .tagline { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; max-width: 480px; line-height: 1.6; }
 .hero-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
 .btn {
@@ -122,6 +125,8 @@ a:hover { color: var(--teal); }
   border: 1px solid var(--border);
   transition: border-color 0.2s;
 }
+.stat, .skill-card, .project-card, .cert-card { box-shadow: 0 1px 3px rgba(42,39,34,0.04), 0 6px 20px rgba(42,39,34,0.05); }
+.stat:hover, .skill-card:hover, .project-card:hover, .cert-card:hover { box-shadow: 0 2px 6px rgba(90,81,224,0.08), 0 10px 28px rgba(90,81,224,0.10); }
 .stat:hover { border-color: var(--accent); }
 .stat .num { font-size: 1.6rem; font-weight: 700; color: var(--teal); }
 .stat .lbl { font-size: 0.7rem; color: var(--text-muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -194,7 +199,7 @@ section { padding: 56px 0; }
 .project-highlights li { font-size: 0.82rem; color: var(--text-muted); padding-left: 14px; position: relative; }
 .project-highlights li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 .project-tech { display: flex; flex-wrap: wrap; gap: 5px; }
-.project-tech span { background: var(--accent-glow); border: 1px solid rgba(99,102,241,0.25); padding: 3px 9px; border-radius: 5px; font-size: 0.72rem; color: var(--accent); font-weight: 500; }
+.project-tech span { background: var(--accent-glow); border: 1px solid rgba(90,81,224,0.22); padding: 3px 9px; border-radius: 5px; font-size: 0.72rem; color: var(--accent); font-weight: 600; }
 
 /* Certs */
 .cert-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -202,7 +207,7 @@ section { padding: 56px 0; }
 .cert-card:hover { border-color: var(--accent); }
 .cert-card h4 { font-size: 0.9rem; margin-bottom: 6px; }
 .cert-card p { font-size: 0.8rem; color: var(--text-muted); }
-.cert-badge { display: inline-block; font-size: 0.65rem; padding: 2px 8px; background: rgba(45,212,191,0.1); border: 1px solid rgba(45,212,191,0.2); color: var(--teal); border-radius: 4px; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.cert-badge { display: inline-block; font-size: 0.65rem; padding: 2px 8px; background: rgba(14,148,136,0.12); border: 1px solid rgba(14,148,136,0.28); color: var(--teal); border-radius: 4px; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
 /* Contact */
 .contact-section { text-align: center; padding: 56px 0; }
@@ -250,7 +255,7 @@ footer { text-align: center; padding: 24px; border-top: 1px solid var(--border);
   </div>
   <div class="hero-text">
     <h1>Hey, I'm <span class="highlight">Dayim</span></h1>
-    <p class="tagline">I build data pipelines, analytical warehouses, and dashboards that turn millions of raw events into numbers people bet money on.</p>
+    <p class="tagline">I build <span class="c-accent">data pipelines</span>, <span class="c-accent">analytical warehouses</span>, and <span class="c-accent">dashboards</span> that turn millions of raw events into <span class="c-teal">numbers people bet money on</span>.</p>
     <div class="hero-buttons">
       <a href="https://rewind-orpin-omega.vercel.app" target="_blank" class="btn btn-primary">View Live Project</a>
       <a href="https://github.com/Dayimshah" target="_blank" class="btn btn-outline">GitHub</a>
@@ -272,7 +277,7 @@ footer { text-align: center; padding: 24px; border-top: 1px solid var(--border);
 <section id="about">
   <h2 class="section-title">About Me</h2>
   <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; max-width: 720px;">
-    CS graduate from <strong style="color:var(--text);">VIT Vellore</strong>. I design analytical warehouses, write SQL that surfaces real patterns from noisy data, build APIs that serve them at scale, and deploy everything end-to-end. My flagship project plants deliberate causes in synthetic data, then proves the analytics layer rediscovers them blind. When it can't, I document why — because knowing where your instruments fail is the real skill.
+    CS graduate from <span class="c-ink">VIT Vellore</span>. I design <span class="c-accent">analytical warehouses</span>, write <span class="c-accent">SQL</span> that surfaces real patterns from noisy data, build <span class="c-accent">APIs</span> that serve them at scale, and deploy everything <span class="c-teal">end-to-end</span>. My flagship project plants deliberate causes in synthetic data, then proves the analytics layer rediscovers them blind. When it can't, I document why &mdash; because <span class="c-teal">knowing where your instruments fail is the real skill</span>.
   </p>
 </section>
 

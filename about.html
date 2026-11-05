@@ -9,18 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0c0c1d;
-  --surface: #141428;
-  --surface-2: #1c1c36;
-  --card: #181830;
-  --border: #2a2a4a;
-  --text: #eaeaf0;
-  --text-muted: #8888a8;
-  --accent: #6366f1;
-  --accent-glow: rgba(99, 102, 241, 0.15);
-  --teal: #2dd4bf;
-  --orange: #fb923c;
-  --pink: #f472b6;
+  --bg: #f7f4ec;
+  --surface: #fffdf8;
+  --surface-2: #f0ece1;
+  --card: #fffdf8;
+  --border: #e3ddcd;
+  --text: #2a2722;
+  --text-muted: #6b6456;
+  --accent: #5a51e0;
+  --accent-glow: rgba(90, 81, 224, 0.12);
+  --teal: #0e9488;
+  --orange: #c2560f;
+  --pink: #d6457e;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -42,8 +42,8 @@ a:hover { color: var(--teal); }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 420px;
-  background: radial-gradient(ellipse at 30% 0%, rgba(99,102,241,0.12) 0%, transparent 60%),
-              radial-gradient(ellipse at 70% 0%, rgba(45,212,191,0.08) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 30% 0%, rgba(90,81,224,0.10) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 0%, rgba(14,148,136,0.08) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -52,7 +52,7 @@ a:hover { color: var(--teal); }
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(12,12,29,0.88);
+  background: rgba(247,244,236,0.85);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   z-index: 100;
@@ -96,6 +96,7 @@ section { padding: 34px 0; }
   border-radius: 12px;
   padding: 24px;
 }
+.card, .fact, .legal { box-shadow: 0 1px 3px rgba(42,39,34,0.04), 0 6px 20px rgba(42,39,34,0.05); }
 .principles { list-style: none; display: grid; gap: 14px; }
 .principles li { padding-left: 22px; position: relative; color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; }
 .principles li::before { content: ''; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
