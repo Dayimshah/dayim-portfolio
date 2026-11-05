@@ -233,7 +233,7 @@ footer { text-align: center; padding: 24px; border-top: 1px solid var(--border);
   <div class="container">
     <div class="nav-brand"><span>&lt;</span>Dayim<span>/&gt;</span></div>
     <div class="nav-links">
-      <a href="#about">About</a>
+      <a href="about.html">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
@@ -252,7 +252,7 @@ footer { text-align: center; padding: 24px; border-top: 1px solid var(--border);
     <h1>Hey, I'm <span class="highlight">Dayim</span></h1>
     <p class="tagline">I build data pipelines, analytical warehouses, and dashboards that turn millions of raw events into numbers people bet money on.</p>
     <div class="hero-buttons">
-      <a href="https://vireo-prism.vercel.app" target="_blank" class="btn btn-primary">View Live Project</a>
+      <a href="https://rewind-orpin-omega.vercel.app" target="_blank" class="btn btn-primary">View Live Project</a>
       <a href="https://github.com/Dayimshah" target="_blank" class="btn btn-outline">GitHub</a>
       <a href="https://www.linkedin.com/in/dayim-shah-612b03204" target="_blank" class="btn btn-outline">LinkedIn</a>
       <a href="mailto:dayimshah321@gmail.com" class="btn btn-outline">dayimshah321@gmail.com</a>
@@ -263,9 +263,9 @@ footer { text-align: center; padding: 24px; border-top: 1px solid var(--border);
 <!-- Stats -->
 <div class="stats-row">
   <div class="stat"><div class="num">1.1M+</div><div class="lbl">Events Processed</div></div>
-  <div class="stat"><div class="num">51</div><div class="lbl">Analytical Queries</div></div>
-  <div class="stat"><div class="num">55</div><div class="lbl">API Endpoints</div></div>
-  <div class="stat"><div class="num">330</div><div class="lbl">Tests Passing</div></div>
+  <div class="stat"><div class="num">370+</div><div class="lbl">Tests Passing</div></div>
+  <div class="stat"><div class="num">110+</div><div class="lbl">API Endpoints</div></div>
+  <div class="stat"><div class="num">2</div><div class="lbl">Live Deployments</div></div>
 </div>
 
 <!-- About -->
@@ -350,6 +350,31 @@ footer { text-align: center; padding: 24px; border-top: 1px solid var(--border);
 <!-- Projects -->
 <section id="projects">
   <h2 class="section-title">Featured Projects</h2>
+
+  <div class="project-card">
+    <div class="project-name">Rewind</div>
+    <div class="project-header">
+      <h3>Safe Backfill Orchestration for Time-Partitioned Data</h3>
+      <div class="project-links">
+        <a href="https://rewind-orpin-omega.vercel.app" target="_blank">Live Demo</a>
+        <a href="https://github.com/Dayimshah/rewind" target="_blank">Code</a>
+      </div>
+    </div>
+    <p>Reprocessing historical data by hand double-counts against the live pipeline and ships wrong numbers nobody catches for weeks. Rewind turns backfill into a first-class operation: precise scope, isolated reprocessing, a reconciliation gate, and an atomic publish.</p>
+    <ul class="project-highlights">
+      <li>Scope planner computes the minimal partition set from source watermarks</li>
+      <li>Excludes a configurable hot window the live stream still owns</li>
+      <li>Idempotent, content-keyed publish on a (table, partition, version) ledger</li>
+      <li>Atomic pointer-swap publish, with Apache Iceberg snapshots behind a flag</li>
+      <li>DuckDB reconciliation gate blocks any data-losing backfill</li>
+      <li>Kafka hot window + Debezium CDC + an Airflow DAG that publishes on pass</li>
+      <li>FastAPI + CLI + Next.js control room, Dockerized, on Render + Vercel</li>
+      <li>40-test suite: idempotency, concurrency, fault injection, crash recovery</li>
+    </ul>
+    <div class="project-tech">
+      <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Apache Kafka</span><span>Debezium</span><span>Apache Airflow</span><span>Apache Iceberg</span><span>DuckDB</span><span>Next.js</span><span>Docker</span>
+    </div>
+  </div>
 
   <div class="project-card">
     <div class="project-name">Titan</div>
@@ -492,7 +517,7 @@ footer { text-align: center; padding: 24px; border-top: 1px solid var(--border);
 </div>
 
 <footer>
-  <p>&copy; 2026 Dayim Shah &middot; VIT Vellore &middot; Bengaluru</p>
+  <p>&copy; 2026 Dayim Shah &middot; <a href="index.html" style="color:var(--text-muted);">Home</a> &middot; <a href="about.html" style="color:var(--text-muted);">About</a> &middot; VIT Vellore &middot; Bengaluru</p>
 </footer>
 
 </body>

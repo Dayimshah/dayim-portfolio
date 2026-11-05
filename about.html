@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Dayim Shah</title>
+<meta name="description" content="About Dayim Shah — Data Engineer and Analyst. Background, how I work, and site information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0c1d;
+  --surface: #141428;
+  --surface-2: #1c1c36;
+  --card: #181830;
+  --border: #2a2a4a;
+  --text: #eaeaf0;
+  --text-muted: #8888a8;
+  --accent: #6366f1;
+  --accent-glow: rgba(99, 102, 241, 0.15);
+  --teal: #2dd4bf;
+  --orange: #fb923c;
+  --pink: #f472b6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); text-decoration: none; transition: all 0.2s; }
+a:hover { color: var(--teal); }
+
+.container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 420px;
+  background: radial-gradient(ellipse at 30% 0%, rgba(99,102,241,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 0%, rgba(45,212,191,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Nav */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(12,12,29,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 14px 0;
+}
+.nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; }
+.nav-brand { font-weight: 700; font-size: 1rem; color: var(--text); }
+.nav-brand span { color: var(--accent); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; }
+.nav-links a:hover { color: var(--teal); }
+.nav-links a.active { color: var(--teal); }
+
+.page-head { padding: 130px 0 10px; }
+.page-head .eyebrow { color: var(--teal); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.page-head h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.15; }
+.page-head h1 .highlight { color: var(--accent); }
+
+section { padding: 34px 0; }
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title::before {
+  content: '';
+  width: 4px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.prose p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.85; margin-bottom: 16px; }
+.prose strong { color: var(--text); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.principles { list-style: none; display: grid; gap: 14px; }
+.principles li { padding-left: 22px; position: relative; color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; }
+.principles li::before { content: ''; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
+.principles li strong { color: var(--text); display: block; margin-bottom: 2px; font-size: 0.95rem; }
+
+.fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.fact { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+.fact .k { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--teal); margin-bottom: 4px; font-weight: 600; }
+.fact .v { font-size: 0.92rem; color: var(--text); }
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #4f46e5; transform: translateY(-1px); box-shadow: 0 4px 24px var(--accent-glow); color: #fff; }
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+.btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+.cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+
+/* Legal / copyright */
+.legal { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; }
+.legal p { color: var(--text-muted); font-size: 0.82rem; line-height: 1.75; margin-bottom: 10px; }
+.legal p:last-child { margin-bottom: 0; }
+.legal strong { color: var(--text); }
+
+footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.8rem; margin-top: 20px; }
+footer a { color: var(--text-muted); }
+footer a:hover { color: var(--teal); }
+
+@media (max-width: 768px) {
+  .page-head { padding-top: 100px; }
+  .page-head h1 { font-size: 1.7rem; }
+  .fact-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero-bg"></div>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-brand"><a href="index.html"><span>&lt;</span>Dayim<span>/&gt;</span></a></div>
+    <div class="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="page-head">
+    <div class="eyebrow">About</div>
+    <h1>I make <span class="highlight">correctness</span> a property, not a hope.</h1>
+  </div>
+
+  <section>
+    <div class="prose">
+      <p>
+        I'm <strong>Dayim Shah</strong>, a Computer Science graduate from <strong>VIT Vellore</strong> based in
+        Bengaluru. I work on the data side of software: analytical warehouses, the pipelines that feed them, the
+        APIs that serve them, and the dashboards that make the numbers legible. I like the parts of this work that
+        other people find tedious: idempotency, reconciliation, backfills that don't double-count, tests that
+        describe behaviour instead of pinning a magic number.
+      </p>
+      <p>
+        My projects tend to start from a failure mode rather than a feature list. <strong>Rewind</strong> exists
+        because reprocessing historical data by hand quietly ships wrong numbers for weeks. <strong>Prism</strong>
+        plants deliberate causal structure into synthetic data and then checks whether the analytics layer can
+        rediscover it blind. When the instruments can't, I write down why &mdash; knowing where your measurements
+        break is the actual skill.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">How I work</h2>
+    <div class="card">
+      <ul class="principles">
+        <li><strong>Correctness before cleverness.</strong> A pipeline that's fast and wrong is worse than one that's slow and right. I build the guardrails first.</li>
+        <li><strong>Honest about limits.</strong> I document what a system doesn't do and where it would break under load, rather than letting a demo imply more than it proves.</li>
+        <li><strong>Tests that mean something.</strong> I prefer invariant and property-based tests over hardcoded expected values, so the suite still protects you when the data changes.</li>
+        <li><strong>End to end.</strong> I take projects from schema and ingestion through API, dashboard, Docker, and a live deployment &mdash; not just the interesting middle.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">At a glance</h2>
+    <div class="fact-grid">
+      <div class="fact"><div class="k">Based in</div><div class="v">Bengaluru, India</div></div>
+      <div class="fact"><div class="k">Education</div><div class="v">B.Tech CSE, VIT Vellore (2022&ndash;2026)</div></div>
+      <div class="fact"><div class="k">Focus</div><div class="v">Data Engineering, Analytics, Analytics Engineering</div></div>
+      <div class="fact"><div class="k">Certifications</div><div class="v">AWS Cloud Practitioner, Oracle Cloud Infrastructure Foundations</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Get in touch</h2>
+    <div class="prose">
+      <p>Open to Data Engineering, Analytics, and Backend roles. The fastest way to reach me is email or LinkedIn.</p>
+    </div>
+    <div class="cta-row">
+      <a href="mailto:dayimshah321@gmail.com" class="btn btn-primary">dayimshah321@gmail.com</a>
+      <a href="https://www.linkedin.com/in/dayim-shah-612b03204" target="_blank" class="btn btn-outline">LinkedIn</a>
+      <a href="https://github.com/Dayimshah" target="_blank" class="btn btn-outline">GitHub</a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Site &amp; copyright</h2>
+    <div class="legal">
+      <p>
+        <strong>&copy; 2026 Dayim Shah. All rights reserved.</strong> The text, design, and layout of this
+        website are my own work. Please don't republish them as your own.
+      </p>
+      <p>
+        Project source code is released under the licenses stated in each project's GitHub repository. Where no
+        license is stated, the code is shown for portfolio and evaluation purposes and is not licensed for reuse.
+      </p>
+      <p>
+        Product names and logos mentioned on this site (for example AWS, Azure, PostgreSQL, Apache Kafka, Apache
+        Iceberg, Power BI, and Snowflake) are trademarks of their respective owners and are referenced here only
+        to describe the tools used. Their use does not imply any endorsement.
+      </p>
+      <p>
+        This site does not set tracking cookies or run third-party analytics. Fonts are loaded from Google Fonts;
+        your browser contacts Google's servers to fetch them. If you contact me by email, I use your message only
+        to reply.
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Dayim Shah &middot; <a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; VIT Vellore &middot; Bengaluru</p>
+</footer>
+
+</body>
+</html>
